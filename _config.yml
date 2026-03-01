@@ -1,6 +1,11 @@
 title: TraversalAI Docs
-description: Full TraversalAI documentation website
+description: A complete step-by-step guide to install, run, and operate TraversalAI
+url: https://xplasma0.github.io
+baseurl: /traversalai-docs
 theme: jekyll-theme-cayman
 markdown: kramdown
+kramdown:
+  input: GFM
 include:
   - docs
+  - assets

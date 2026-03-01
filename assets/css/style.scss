@@ -1,0 +1,87 @@
+---
+---
+
+@import "jekyll-theme-cayman";
+
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --ink: #122333;
+  --muted: #4f6a80;
+  --brand: #0f6d87;
+  --brand-2: #0ea5e9;
+  --line: #d7e4ee;
+}
+
+body {
+  background: radial-gradient(circle at 0% 0%, #e8f4fb, transparent 34%),
+    radial-gradient(circle at 100% 10%, #edf7ff, transparent 32%),
+    var(--bg);
+  color: var(--ink);
+}
+
+.page-header {
+  background: linear-gradient(120deg, var(--brand), var(--brand-2));
+}
+
+.main-content {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(15, 65, 95, 0.08);
+}
+
+.main-content h1,
+.main-content h2,
+.main-content h3 {
+  color: #0d2b3e;
+}
+
+.main-content p,
+.main-content li {
+  line-height: 1.75;
+}
+
+.callout {
+  border: 1px solid #b6d8e7;
+  background: #eef8fd;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 16px 0;
+}
+
+.grid-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.grid-links a {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 12px;
+  padding: 14px;
+  color: #0f3650;
+  font-weight: 600;
+}
+
+.grid-links a:hover {
+  border-color: #8dc0d6;
+  transform: translateY(-1px);
+}
+
+.step {
+  border-left: 4px solid #2ca7d8;
+  background: #f8fcff;
+  padding: 12px 14px;
+  margin: 12px 0;
+}
+
+code {
+  border-radius: 6px;
+  padding: 2px 5px;
+}

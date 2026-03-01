@@ -1,72 +1,76 @@
 # Troubleshooting
 
-Use this playbook for fast, high-confidence diagnosis.
+This page is written as a decision tree for non-technical and technical users.
 
-## Incident Triage Flow
+## A. Dashboard does not open
 
-1. Confirm current symptom and affected surface
-2. Check service health and reachability
-3. Verify auth and pairing state
-4. Validate channel/provider credentials
-5. Inspect logs and recent config changes
+### Check A1: Is service running?
 
-## Common Scenarios
+Run:
 
-## Dashboard 404 / Unreachable
+```bash
+traversalai gateway status --deep
+```
 
-Checks:
+Expected:
 
-- Is gateway process running?
-- Is bind/port correct for the access path?
-- Is reverse proxy/Tailscale route valid?
-- Is dashboard URL token/auth valid?
+- Runtime is running
+- RPC probe is ok
 
-## SSH Tunnel Connection Refused
+### Check A2: Is URL correct?
 
-Checks:
+Use:
 
-- Tunnel target matches active gateway bind (`127.0.0.1` vs tailnet IP)
-- Remote gateway is listening on expected port
-- Gateway mode did not change unexpectedly
+```bash
+traversalai dashboard --no-open
+```
 
-## Auth Required / Unauthorized
+Copy the exact URL again.
 
-Checks:
+### Check A3: Tunnel/path mismatch?
 
-- Token/password in client matches gateway config
-- Trusted-proxy mode has expected identity context
-- Device identity requirements are satisfied
+If using SSH tunnel, ensure gateway bind matches tunnel target.
 
-## Channel Delivery Failures
+Common error:
 
-Checks:
+- Tunnel points to `localhost`, gateway listens on tailnet IP
 
-- Channel credentials still valid
-- Channel connection status healthy
-- Routing and allowlist policies match expected target
+## B. Unauthorized / auth required
 
-## Provider/Model Failures
+### Check B1: Token/password in client
 
-Checks:
+- Token exists and matches gateway config
+- Password is current
 
-- Provider credentials present and unexpired
-- Endpoint reachability
-- Model availability and allowed parameters
+### Check B2: Pairing pending
 
-## Fast Command Set
+```bash
+traversalai devices list
+traversalai devices approve <requestId>
+```
 
-Use this sequence:
+## C. Channel messages not arriving
 
-1. `traversalai status`
-2. `traversalai gateway status --deep`
-3. `traversalai channels status --probe`
-4. `traversalai logs` (or platform-specific log collection)
+### Check C1: Channel health probe
 
-## Escalation Notes
+```bash
+traversalai channels status --probe
+```
 
-Include in escalation report:
+### Check C2: Credentials expired
 
-- exact error text
-- command outputs used for verification
-- recent config/deploy changes
-- timestamp and environment scope
+Refresh tokens/keys for affected channel.
+
+## D. After upgrade, behavior changed
+
+Use [Upgrade Guide](/traversalai-docs/docs/operations/upgrade-guide) and compare config + release notes.
+
+## E. Fast Incident Bundle (copy this to support)
+
+Include:
+
+- output of `traversalai status`
+- output of `traversalai gateway status --deep`
+- exact error message text
+- timestamp and timezone
+- what changed just before failure

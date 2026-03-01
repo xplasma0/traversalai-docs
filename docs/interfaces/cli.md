@@ -1,55 +1,30 @@
 # CLI
 
-The TraversalAI CLI is the authoritative automation surface for scripting, diagnostics, and operations.
+The CLI is the most reliable interface for repeatable operations.
 
-## CLI Principles
+## Why CLI Matters
 
-- Deterministic behavior for automation
-- Machine-readable output where applicable
-- Fast operational feedback for incident handling
+- Works over SSH
+- Easy to automate
+- Precise and script-friendly
 
-## Core Command Areas
+## Most Useful Commands for Daily Operations
 
-## Runtime and Connectivity
+```bash
+traversalai status
+traversalai gateway status --deep
+traversalai dashboard --no-open
+traversalai devices list
+traversalai channels status --probe
+```
 
-- `gateway`: service lifecycle and connectivity
-- `dashboard`: local control-UI tokenized launch
-- `status`: health snapshot and troubleshooting hints
+## Tips for Non-Technical Operators
 
-## Sessions and Messaging
+- Keep a note with your top 5 commands
+- Always copy/paste exact command text
+- If command fails, copy full error message (do not summarize)
 
-- `agent` / `agents`: agent lifecycle and interaction
-- `message`: send and inspect message flows
-- `sessions`: session state operations
+## When to Use CLI vs Dashboard
 
-## Configuration and Security
-
-- `config` / `configure`: configuration state and guided setup
-- `security`: security checks and guardrail surfaces
-- `doctor`: environment diagnostics and remediation hints
-
-## Integrations and Extensibility
-
-- `channels`: channel state and controls
-- `plugins`: plugin lifecycle and management
-- `hooks`: automation hook introspection and control
-
-## Operational Usage Patterns
-
-## Local Diagnostics
-
-1. `traversalai status`
-2. `traversalai gateway status --deep`
-3. `traversalai channels status --probe`
-
-## Access Recovery
-
-1. `traversalai dashboard --no-open`
-2. `traversalai devices list`
-3. `traversalai devices approve <requestId>`
-
-## Safe Automation
-
-- Prefer explicit command flags over implicit defaults in CI
-- Use non-interactive flows for repeatable environments
-- Capture command output into structured logs
+- Use dashboard for live interaction and visual checks
+- Use CLI for troubleshooting, automation, and remote ops

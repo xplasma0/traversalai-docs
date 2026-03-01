@@ -1,68 +1,46 @@
 # Dashboard
 
-The TraversalAI dashboard is the primary operational interface for live control.
+The dashboard is TraversalAI’s visual control center.
 
-## Purpose
+## What It Is For
 
-Use the dashboard to:
+- Run and manage sessions
+- See system health instantly
+- Diagnose issues with fewer terminal commands
+- Operate safely with pairing and auth controls
 
-- Verify gateway health and connectivity
-- Operate sessions and chats in real time
-- Review runtime logs and background activity
-- Manage pairing, tokens, and access workflow
-- Inspect channels, agents, and execution approvals
-
-## Main Views
+## Main Areas Explained Simply
 
 ## Overview
 
-Shows current gateway state, access settings, and quick health signals.
+A snapshot page that answers: “Is my system healthy right now?”
 
 ## Chat
 
-Primary operator surface for interacting with active sessions.
+Where you send requests and monitor responses.
 
 ## Sessions
 
-Session list with identity/context continuity for long-running workflows.
+Where you track ongoing conversation/workflow context.
 
 ## Usage
 
-Token and provider usage metrics, including trend-oriented summaries.
+Where you monitor token/provider consumption.
 
-## Channels
+## Logs and Debug
 
-Current channel states and connectivity behavior.
+Where you inspect what happened when something fails.
 
-## Logs / Debug
+## Safety Notes
 
-Structured runtime diagnostics used for triage and incident response.
+- Keep dashboard behind secure access path
+- Avoid public unauthenticated exposure
+- Rotate tokens and credentials regularly
 
-## Secure Access Patterns
+## First-Time User Checklist
 
-Recommended production access patterns:
-
-1. Use loopback binding and reverse proxy/Tailscale for remote usage
-2. Keep auth enabled for control UI endpoints
-3. Rotate dashboard tokens regularly
-4. Restrict dashboard ingress to trusted identities
-
-## Device Pairing Model
-
-Device pairing is used when new clients request dashboard access under protected gateway policy.
-
-Typical flow:
-
-1. Client requests pairing
-2. Operator lists pending devices
-3. Operator approves request ID
-4. Client receives access token path
-
-## Operational Checklist
-
-Before daily use:
-
-- Confirm gateway health is `ok`
-- Confirm auth mode is expected
-- Confirm active sessions are valid
-- Confirm no stale critical errors in logs
+1. Open dashboard with `traversalai dashboard --no-open`
+2. Confirm status is healthy
+3. Send one test message
+4. Confirm response and logs are visible
+5. Save recovery commands for pairing and status checks

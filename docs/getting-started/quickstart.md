@@ -1,21 +1,50 @@
-# Quickstart
+# Quickstart (10-Minute Path)
 
-## 1. Install
+This is the fastest safe path to first success.
 
-Follow the installation guide to install TraversalAI runtime and CLI.
+## Step 1: Install
 
-## 2. Configure
+Install TraversalAI runtime and CLI.
 
-Set your basic environment values and auth providers.
+## Step 2: Verify
 
-## 3. Run Gateway
+```bash
+traversalai --version
+traversalai status
+```
 
-Start the gateway service and verify health.
+## Step 3: Start Gateway
 
-## 4. Open Dashboard
+Start service and verify deep status:
 
-Connect using the generated dashboard URL and token.
+```bash
+traversalai gateway status --deep
+```
 
-## 5. Send First Command
+## Step 4: Open Dashboard URL
 
-Use CLI or dashboard chat to run an initial task and confirm end-to-end flow.
+```bash
+traversalai dashboard --no-open
+```
+
+Open the printed URL in your browser.
+
+## Step 5: Pair if Needed
+
+```bash
+traversalai devices list
+traversalai devices approve <requestId>
+```
+
+## Step 6: First Command
+
+In dashboard chat, run a simple request and confirm response.
+
+## Step 7: Save This Validation Checklist
+
+- Gateway running
+- Dashboard reachable
+- Auth working
+- First command completed
+
+If any item fails, jump to [Troubleshooting](/traversalai-docs/docs/operations/troubleshooting).
