@@ -1,0 +1,55 @@
+site_name: TraversalAI Docs
+site_description: Complete documentation for TraversalAI
+site_url: https://xplasma0.github.io/traversalai-docs/
+repo_url: https://github.com/xplasma0/traversalai-docs
+repo_name: xplasma0/traversalai-docs
+theme:
+  name: material
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Overview: getting-started/overview.md
+      - Quickstart: getting-started/quickstart.md
+      - Installation: getting-started/installation.md
+      - First Workflow: getting-started/first-workflow.md
+  - Core Concepts:
+      - Architecture: core-concepts/architecture.md
+      - Agents: core-concepts/agents.md
+      - Sessions: core-concepts/sessions.md
+      - Routing and Channels: core-concepts/routing-and-channels.md
+  - Configuration:
+      - Configuration Guide: configuration/configuration.md
+      - Environment Variables: configuration/environment-variables.md
+      - Security and Auth: configuration/security-and-auth.md
+  - Interfaces:
+      - Dashboard: interfaces/dashboard.md
+      - CLI: interfaces/cli.md
+      - API and Integrations: interfaces/api-and-integrations.md
+  - Deployment:
+      - Self-Hosting: deployment/self-hosting.md
+      - Production Hardening: deployment/production-hardening.md
+      - Monitoring and Logs: deployment/monitoring-and-logs.md
+  - Operations:
+      - Backup and Recovery: operations/backup-and-recovery.md
+      - Upgrade Guide: operations/upgrade-guide.md
+      - Troubleshooting: operations/troubleshooting.md
+  - Reference:
+      - Command Reference: reference/command-reference.md
+      - Configuration Reference: reference/configuration-reference.md
+      - Glossary: reference/glossary.md
+  - Community:
+      - Contributing: community/contributing.md
+      - FAQ: community/faq.md
+      - Changelog Policy: community/changelog-policy.md
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
