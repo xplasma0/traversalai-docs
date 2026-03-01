@@ -1,0 +1,6 @@
+title: TraversalAI Docs
+description: Full TraversalAI documentation website
+theme: jekyll-theme-cayman
+markdown: kramdown
+include:
+  - docs
