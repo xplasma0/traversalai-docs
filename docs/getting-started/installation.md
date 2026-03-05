@@ -51,6 +51,7 @@ corepack pnpm test:fast
 corepack pnpm lint
 corepack pnpm tsgo
 corepack pnpm format:check
+corepack pnpm audit --prod
 ```
 
 ## 4. Local run commands
