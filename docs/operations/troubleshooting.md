@@ -1,76 +1,85 @@
 # Troubleshooting
 
-This page is written as a decision tree for non-technical and technical users.
+This playbook focuses on high-frequency operational issues and exact fixes.
 
-## A. Dashboard does not open
+## A. `dashboard devices list` says "too many arguments"
 
-### Check A1: Is service running?
-
-Run:
-
-```bash
-traversalai gateway status --deep
-```
-
-Expected:
-
-- Runtime is running
-- RPC probe is ok
-
-### Check A2: Is URL correct?
+If you are on an older build, you may see this parser error.
 
 Use:
 
 ```bash
-traversalai dashboard --no-open
+corepack pnpm build
+corepack pnpm openclaw dashboard devices list
 ```
 
-Copy the exact URL again.
+Expected behavior:
 
-### Check A3: Tunnel/path mismatch?
+- dashboard URL is printed first
+- `devices list` runs as a follow-up command
 
-If using SSH tunnel, ensure gateway bind matches tunnel target.
+## B. `pnpm: command not found` during build
 
-Common error:
+Symptom often appears in source workflows where `corepack pnpm build` triggers scripts that internally call `pnpm`.
 
-- Tunnel points to `localhost`, gateway listens on tailnet IP
+Use:
 
-## B. Unauthorized / auth required
+```bash
+corepack pnpm build
+```
 
-### Check B1: Token/password in client
+If it still fails, confirm:
 
-- Token exists and matches gateway config
-- Password is current
+```bash
+corepack --version
+node --version
+```
 
-### Check B2: Pairing pending
+## C. Dashboard not reachable over SSH tunnel
+
+Typical cause: tunnel target and gateway bind mismatch.
+
+Recommended tunnel:
+
+```bash
+ssh -L 28789:127.0.0.1:28789 user@gateway-host
+```
+
+Then open:
+
+- `http://localhost:28789/`
+
+Verify listener on the remote host:
+
+```bash
+ss -ltnp | grep 28789
+```
+
+## D. Tailscale IP returns "connection refused"
+
+Check these in order:
+
+1. Gateway process is running.
+2. Gateway bind mode allows your network path.
+3. Firewall/security-group allows the port.
+4. Tunnel target matches the bind address.
+
+## E. Pairing or authorization issues
 
 ```bash
 traversalai devices list
 traversalai devices approve <requestId>
+traversalai status
 ```
 
-## C. Channel messages not arriving
+If needed, regenerate auth token and retry from a fresh dashboard URL.
 
-### Check C1: Channel health probe
+## F. Incident bundle for support
 
-```bash
-traversalai channels status --probe
-```
-
-### Check C2: Credentials expired
-
-Refresh tokens/keys for affected channel.
-
-## D. After upgrade, behavior changed
-
-Use [Upgrade Guide](/traversalai-docs/docs/operations/upgrade-guide) and compare config + release notes.
-
-## E. Fast Incident Bundle (copy this to support)
-
-Include:
+Collect and share:
 
 - output of `traversalai status`
 - output of `traversalai gateway status --deep`
-- exact error message text
-- timestamp and timezone
-- what changed just before failure
+- exact error text
+- timestamp with timezone
+- last config or deployment change before failure
