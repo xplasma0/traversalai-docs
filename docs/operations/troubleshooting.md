@@ -45,6 +45,11 @@ Recommended tunnel:
 ssh -L 28789:127.0.0.1:28789 user@gateway-host
 ```
 
+Notes:
+
+- New CLI hints may intentionally show `gateway-host` instead of a private server IP.
+- Replace `gateway-host` with the public DNS name or reachable IP you actually use for SSH.
+
 Then open:
 
 - `http://localhost:28789/`
