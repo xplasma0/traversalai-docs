@@ -29,6 +29,7 @@ nav:
       - Security and Auth: configuration/security-and-auth.md
   - Interfaces:
       - Dashboard: interfaces/dashboard.md
+      - Easy Web Chat UI: interfaces/easy-chat-ui.md
       - CLI: interfaces/cli.md
       - API and Integrations: interfaces/api-and-integrations.md
   - Deployment:
