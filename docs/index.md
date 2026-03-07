@@ -6,7 +6,7 @@ This site covers the platform from A to Z:
 
 - Architecture and core concepts
 - Installation and quickstart
-- Dashboard, CLI, and API usage
+- Dashboard, easy web chat UI, CLI, and API usage
 - Security and production operations
 - Reference documentation and troubleshooting
 
