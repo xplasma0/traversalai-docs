@@ -4,47 +4,60 @@ This is the fastest safe path to first success.
 
 ## Step 1: Install
 
-Install TraversalAI runtime and CLI.
+Install TraversalAI from source or as a global CLI.
 
-## Step 2: Verify
+## Step 2: Verify The CLI
 
 ```bash
 traversalai --version
 traversalai status
 ```
 
-## Step 3: Start Gateway
-
-Start service and verify deep status:
+If you are running from a repo checkout instead of a global install, use:
 
 ```bash
-traversalai gateway status --deep
+node traversalai.mjs --version
+node traversalai.mjs status
 ```
 
-## Step 4: Open Dashboard URL
+## Step 3: Complete Onboarding
 
 ```bash
-traversalai dashboard --no-open
+traversalai onboard
+```
+
+## Step 4: Start The Gateway
+
+```bash
+traversalai gateway --force
+```
+
+## Step 5: Open The Chat Interface
+
+```bash
+traversalai chat --no-open
 ```
 
 Open the printed URL in your browser.
 
-## Step 5: Pair if Needed
+## Step 6: Validate The Main Chat Features
 
-```bash
-traversalai devices list
-traversalai devices approve <requestId>
-```
+Confirm that you can:
 
-## Step 6: First Command
-
-In dashboard chat, run a simple request and confirm response.
+- send a prompt and receive a response
+- switch agents
+- switch models
+- see tool activity
+- see available skills from the gateway
+- start a new chat and return to saved chats later
 
 ## Step 7: Save This Validation Checklist
 
+- Onboarding completed
 - Gateway running
-- Dashboard reachable
-- Auth working
-- First command completed
+- Chat interface reachable
+- First response completed
+- Agent and model switching working
+- Saved chats visible
 
 If any item fails, jump to [Troubleshooting](/traversalai-docs/docs/operations/troubleshooting).
