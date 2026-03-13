@@ -9,11 +9,11 @@
 
 ## Install From Source
 
-Use this path if you are running the current repository directly:
+Use this path if you are running the current primary repository directly:
 
 ```bash
-git clone <repo-url>
-cd traversalai
+git clone https://github.com/xplasma0/traversalai-v2.git
+cd traversalai-v2
 corepack pnpm install
 corepack pnpm build
 node traversalai.mjs --help
