@@ -4,7 +4,16 @@ This is the fastest safe path to first success.
 
 ## Step 1: Install
 
-Install TraversalAI from source or as a global CLI.
+Install TraversalAI from the primary source repository or as a global CLI.
+
+Primary source repository:
+
+```bash
+git clone https://github.com/xplasma0/traversalai-v2.git
+cd traversalai-v2
+corepack pnpm install
+corepack pnpm build
+```
 
 ## Step 2: Verify The CLI
 
